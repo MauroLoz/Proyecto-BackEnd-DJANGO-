@@ -1,0 +1,54 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/verpelicula.css' %}">
+
+<div class="m-5">
+    <div class="d-flex" id="divTitle">
+        <div style="width: 75%;"><h1 class="p-5">{{pelicula.title}}</h1></div>
+        <div style="width: 25%; text-align: center; align-self: center;"><h1><i class="bi bi-star mr-2"></i>{{value}}</h1></div>
+    </div>
+    <h3 class="py-4">Categoria: {{pelicula.genero}}</h3>
+    <img src={{pelicula.image.url}}/>
+    <h4 class="py-5">{{pelicula.sinopsis}}</h4>
+    <h4>Director: {{pelicula.director}}</h4></br>
+    </br>
+    <h4>Nacionalidad del Film: {{pelicula.nacionalidad}}</h4></br>
+    </br>
+    <a href="/">Volver</a>
+
+    <form method="POST" action="/commentPelicula/">
+        {% csrf_token %}
+        <input type='hidden' value="{{pelicula.id}}" name="pelicula">
+        <div class="form-group my-3">
+            <label> Puntaje: </label>
+            <select name="puntaje">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+        </div>
+        <div class="form-group my-3">
+            <textarea class="form-control" name="text" placeholder="Escribe su critica a la pelicula.."></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Enviar comentario</button>
+    </form>
+
+    <div class="mt-5">
+        <h4 class="commentTitle p-2">Comentarios</h4>
+        <div class="comment p-2">
+        {% for c in pelicula.comentariopelicula_set.all %}
+            <div>
+                <p>{{c.user}} escribió: {{c.text}} - Puntaje: <span style="font-size: large;">{{c.puntaje}}</span><span class="d-flex" style="align-items: end; font-size: x-small;">{{c.created}}</span></p>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+    
+</div>
+
+{% endblock %}

@@ -1,0 +1,37 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: small;
+}
+div h1 i {
+    font-size: larger;
+}
+
+div h1 {
+    border-radius: 15px;
+}
+
+#divTitle {
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    justify-content: center;
+}
+
+img {
+    width: 400px
+}
+
+.commentTitle {
+    background-color: black; 
+    color: white; 
+    border-radius: 15px;
+}
+
+.comment {
+    background-color: gray; 
+    border-radius: 15px;
+}
+
+p {
+    font-weight: bold;
+}

@@ -1,0 +1,69 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/latest/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+    
+    <title>Movies Page</title>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Movies Popular</a>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+                {% if request.user.is_authenticated %}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/">Inicio <span class="sr-only">(actual)</span></a>
+                    </li>
+                {% if request.user.is_superuser %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/nuevapelicula">Nueva Pelicula</a>
+                </li>  
+                <li class="nav-item">
+                    <a class="nav-link" href="/nuevaserie">Nueva Serie</a>
+                </li> 
+                <li class="nav-item">
+                    <a class="nav-link" href="/api/peliculas">API</a>
+                </li>   
+                {% endif %}           
+                <li class="nav-item">
+                    <a class="nav-link" href="/perfil">Perfil</a>
+                </li>
+                {% endif %}
+
+                {% if request.user.is_authenticated %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Cerrar Sesion</a>
+                {% else %}
+                <li class="nav-item">
+                    <a class="nav-link" href="/login">Iniciar Sesion</a>
+                {% endif %}
+ 
+            </ul>
+        </nav>
+        
+    </header>
+
+    <main role="main" class="container my-5">
+        <div class="py-4">
+            {% block content %}
+
+            {% endblock %}
+        </div>
+    </main>
+
+    <footer class="footer bg-light p-4 fixed-bottom">
+        <div class="container">
+            <span class="text-muted">Bienvenido al sitio para postear y leer criticas de peliculas y series</span>
+        </div>
+    </footer>
+</body>
+</html>

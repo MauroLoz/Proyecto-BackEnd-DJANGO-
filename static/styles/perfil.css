@@ -1,0 +1,15 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: small;
+}
+
+div h1 {
+    background-color: black; 
+    border-radius: 15px; 
+    color: white;
+}
+
+.infoP { 
+    background-color: grey; 
+    border-radius: 15px;
+}

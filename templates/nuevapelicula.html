@@ -1,0 +1,69 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/nuevapelicula.css' %}">
+
+<h1>Subir nueva pelicula</h1>
+
+<div class="my-5">
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    
+
+    <div class="form-group my-3">
+        <label> Titulo </label>
+        <div>
+            {{form.title}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Genero </label>
+        <div>
+            {{form.genero}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Sinopsis </label>
+        <div>
+            {{form.sinopsis}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Director </label>
+        <div>
+            {{form.director}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Nacionalidad </label>
+        <div>
+            {{form.nacionalidad}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <label> Poster </label>
+        <div>
+            {{form.image}}
+        </div>
+    </div>
+
+    <div class="form-group my-3">
+        <div>
+            {{form.user}}
+        </div>
+    </div>
+
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
+</div>
+
+{% endblock %}

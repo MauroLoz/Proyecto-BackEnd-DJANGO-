@@ -1,0 +1,21 @@
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-size: small;
+}
+
+img {
+    width: 250px;
+}
+
+.divMsg {
+    background-color: black;
+    border-radius: 25px;
+}
+
+div div div h1 {
+    color: white;
+}
+
+div div div a {
+    font-size: medium;
+}
