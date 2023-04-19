@@ -17,6 +17,7 @@ urlpatterns = [
     path('nuevapelicula/', views.nuevapelicula),
     path('nuevaserie/', views.nuevaserie),
     path('perfil/', views.perfil),
+    path('recomendacion/', views.recomendacion),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

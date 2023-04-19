@@ -5,8 +5,8 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'styles/registrar.css' %}">
 
-<div class="d-flex m-5 p-5">
-    <div class="d-flex">
+<div class="d-flex p-5">
+    <div class="py-5 container d-flex" style="border-radius: 20px; background-color: white;">
         <h1 class="p-4">Registro</h1>
         <form method="POST" action="">
             {% csrf_token %}

@@ -1,5 +1,5 @@
 from django import forms
-from .models import Pelicula, Serie
+from .models import Pelicula, Serie, Recomendacion
 
 class PeliculaForm(forms.ModelForm):
    class Meta:
@@ -9,4 +9,10 @@ class PeliculaForm(forms.ModelForm):
 class SerieForm(forms.ModelForm):
    class Meta:
       model = Serie
+      fields = '__all__'
+
+
+class Recomendacion(forms.ModelForm):
+   class Meta:
+      model = Recomendacion
       fields = '__all__'

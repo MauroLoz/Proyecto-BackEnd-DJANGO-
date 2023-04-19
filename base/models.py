@@ -87,3 +87,17 @@ class ComentarioSerie(models.Model):
     post = models.ForeignKey(Serie, on_delete=models.CASCADE)
     created = models.DateTimeField(auto_now_add = True)
     user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+
+
+class Recomendacion(models.Model):
+    title=models.CharField(max_length=100)
+    tipo_box=(
+        ('Pelicula', 'Pelicula'),
+        ('Serie', 'Serie'),
+    )
+    tipo = models.CharField(max_length=15, choices=tipo_box)
+    updated = models.DateTimeField(auto_now = True)
+    created = models.DateTimeField(auto_now_add = True)
+    user = models.ForeignKey(User, null=True, on_delete=models.SET_NULL)
+    def __str__(self):
+        return self.title

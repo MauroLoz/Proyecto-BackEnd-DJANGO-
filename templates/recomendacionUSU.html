@@ -1,0 +1,33 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/nuevapelicula.css' %}">
+
+<div class="container mt-5 d-flex justify-content-center">
+
+
+<div class="my-5 p-5" style="border-width: 5px; border-style: solid; border-color: white; border-radius: 20px; width: 60%;">
+    <h1>Suba su recomendacion</h1>
+<form method="POST" action="">
+    {% csrf_token %}
+    
+    <div class="form-group my-5">
+        <label> Titulo </label>
+        <input type="text" class="form-control" name="title">
+    </div>
+    <div class="form-group my-5">
+        <label> Tipo de Solicitud</label></br>
+        <select name="tipo">
+            <option value="Pelicula">Pelicula</option>
+            <option value="Serie">Serie</option>
+        </select>
+    </div>
+
+    <button class="btn btn-primary" type="submit">Enviar</button>
+</form>
+</div>
+</div>
+
+{% endblock %}

@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from django.http import HttpResponse
-from .models import Pelicula, ComentarioPelicula, Serie, ComentarioSerie
+from .models import Pelicula, ComentarioPelicula, Serie, ComentarioSerie, Recomendacion
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
@@ -223,3 +223,22 @@ def perfil(request):
         return render(request, 'perfil.html', {'comentario':comentario})
     else:
         return render(request, 'sincuenta.html')
+
+
+def recomendacion(request):
+    if request.user.is_authenticated:
+        if request.user.is_superuser:
+                recomendacion = Recomendacion.objects.order_by('-created')
+                return render(request, 'recomendacionADM.html', {'recomendacion':recomendacion})
+        else:
+            if request.method == 'POST': 
+                Recomendacion.objects.create(
+                    title = request.POST.get('title'),
+                    tipo = request.POST.get('tipo'),
+                    user = request.user
+                    )           
+                return redirect('/')
+            return render(request, 'recomendacionUSU.html')
+    else:
+        return render(request, 'sincuenta.html')
+

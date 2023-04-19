@@ -22,7 +22,7 @@
                 {% if request.user.is_authenticated %}
                 <li class="nav-item active">
                     <a class="nav-link" href="/">Inicio <span class="sr-only">(actual)</span></a>
-                    </li>
+                </li>
                 {% if request.user.is_superuser %}
                 <li class="nav-item">
                     <a class="nav-link" href="/nuevapelicula">Nueva Pelicula</a>
@@ -34,6 +34,9 @@
                     <a class="nav-link" href="/api/peliculas">API</a>
                 </li>   
                 {% endif %}           
+                <li class="nav-item">
+                    <a class="nav-link" href="/recomendacion">Recomendacion</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/perfil">Perfil</a>
                 </li>
@@ -52,17 +55,17 @@
         
     </header>
 
-    <main role="main" class="container my-5">
+    <div class="my-5" style="background-color: #d9f0e5; height: 100vh">
         <div class="py-4">
             {% block content %}
 
             {% endblock %}
         </div>
-    </main>
+    </div>
 
-    <footer class="footer bg-light p-4 fixed-bottom">
+    <footer class="footer bg-light p-4 fixed-bottom bg-dark">
         <div class="container">
-            <span class="text-muted">Bienvenido al sitio para postear y leer criticas de peliculas y series</span>
+            <span style="color: white;">Bienvenido al sitio para postear y leer criticas de peliculas y series</span>
         </div>
     </footer>
 </body>

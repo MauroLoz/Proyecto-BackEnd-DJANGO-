@@ -1,0 +1,23 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'styles/nuevapelicula.css' %}">
+
+<div class="container mt-5">
+<h1>Recomendaciones de usuarios</h1>
+
+<div class="my-5">
+    {% for r in recomendacion %}
+        <div class="my-2 bg-dark p-2" style="color: white;">
+        Titulo: {{r.title}} -
+        Tipo: {{r.tipo}} - 
+        Solicitud enviada el: {{r.created}} - 
+        por {{r.user}}
+        </div>
+    {% endfor %}
+</div>
+</div>
+
+{% endblock %}

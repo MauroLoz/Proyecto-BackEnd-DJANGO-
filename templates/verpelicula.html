@@ -5,7 +5,9 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'styles/verpelicula.css' %}">
 
-<div class="m-5">
+<div class="d-flex justify-content-center" style="height: auto"> 
+<div class="container m-5 d-flex justify-content-center" style="flex-direction: column;">
+
     <div class="d-flex" id="divTitle">
         <div style="width: 75%;"><h1 class="p-5">{{pelicula.title}}</h1></div>
         <div style="width: 25%; text-align: center; align-self: center;"><h1><i class="bi bi-star mr-2"></i>{{value}}</h1></div>
@@ -48,7 +50,9 @@
         {% endfor %}
         </div>
     </div>
+
     
+</div>
 </div>
 
 {% endblock %}
